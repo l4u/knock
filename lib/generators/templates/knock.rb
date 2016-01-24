@@ -8,11 +8,10 @@ Knock.setup do |config|
   ## Default:
   # config.token_lifetime = 1.day
 
-
   ## Audience claim
   ## --------------
   ##
-  ## Configure the audience claim to indentify the recipients that the token
+  ## Configure the audience claim to identify the recipients that the token
   ## is intended for.
   ##
   ## Default:
@@ -21,6 +20,13 @@ Knock.setup do |config|
   ## If using Auth0, uncomment the line below
   # config.token_audience = -> { Rails.application.secrets.auth0_client_id }
 
+  ## Signature algorithm
+  ## -------------------
+  ##
+  ## Configure the algorithm used to encode the token
+  ##
+  ## Default:
+  # config.token_signature_algorithm = 'HS256'
 
   ## Signature key
   ## -------------
@@ -33,4 +39,11 @@ Knock.setup do |config|
   ## If using Auth0, uncomment the line below
   # config.token_secret_signature_key = -> { JWT.base64url_decode Rails.application.secrets.auth0_client_secret }
 
+  ## Public key
+  ## ----------
+  ##
+  ## Configure the public key used to decode tokens, if required.
+  ##
+  ## Default:
+  # config.token_public_key = nil
 end

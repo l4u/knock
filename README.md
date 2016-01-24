@@ -149,7 +149,7 @@ e.g.
 class SecuredControllerTest < ActionController::TestCase
   def authenticate
     token = Knock::AuthToken.new(payload: { sub: users(:one).id }).token
-    request.env['HTTP_AUTHORIZATION'] = "bearer #{token}"
+    request.env['HTTP_AUTHORIZATION'] = "Bearer #{token}"
   end
 
   setup do
@@ -162,6 +162,18 @@ class SecuredControllerTest < ActionController::TestCase
   end
 end
 ```
+
+### Algorithms
+
+The JWT spec supports different kind of cryptographic signing algorithms.
+You can set `token_signature_algorithm` to use the one you want in the
+initializer or do nothing and use the default one (HS256).
+
+You can specify any of the algorithms supported by the
+[jwt](https://github.com/jwt/ruby-jwt) gem.
+
+If the algorithm you use requires a public key, you also need to set
+`token_public_key` in the initializer.
 
 ## CORS
 

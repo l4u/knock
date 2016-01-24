@@ -65,6 +65,27 @@ In both case, knock will respond with `head :unauthorized`.
 - `Knock.current_user_from_handle`
 - `Knock.current_user_from_token`
 - No need to mount the engine anymore.
+- Expose `current_user` in the controllers without authenticating
+
+## [1.4.1] - 2016-01-08
+### Fixed
+- Use lambda for audience verification
+
+## [1.4.0] - 2016-01-02
+### Changed
+- Allow use of rails versions above 4.2
+
+### Added
+- Travis integration
+- Contribution guidelines
+- URL authentication
+- Allow use of different encoding algorithm
+- Expose `current_user` in the controllers without authenticating
+
+### Fixed
+- Audience verification in token
+- Use lambda syntax compatible with older ruby versions
+- A few typos
 
 ## [1.3.0] - 2015-07-23
 ### Added
@@ -100,4 +121,3 @@ In both case, knock will respond with `head :unauthorized`.
 - `Knock::Authenticable` to secure endpoints with `before_action :authenticate`
 - `AuthToken` model provides JWT encapsulation
 - `AuthTokenController` provides out of the box sign in implementation
-
