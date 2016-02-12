@@ -1,7 +1,7 @@
 module Knock::Authenticatable
 
   def authenticate_for resource_class
-    token = token_from_request_headers
+    token = params[:token] || token_from_request_headers
     return head(:unauthorized) if token.nil?
 
     begin
